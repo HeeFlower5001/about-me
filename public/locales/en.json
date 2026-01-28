@@ -1,0 +1,24 @@
+{
+  "nav": {
+    "home": "Home",
+    "skills": "Skills",
+    "projects": "Projects",
+    "detail": "Detail"
+  },
+  "home": {
+    "title": "Hi there 👋",
+    "description": "This is my portfolio website."
+  },
+  "projects": {
+    "title": "Projects",
+    "description": "Here you can see my projects."
+  },
+  "skills": {
+    "title": "Skills",
+    "description": "My skills and abilities."
+  },
+  "detail": {
+    "title": "Detail",
+    "description": "Detailed information page."
+  }
+}
