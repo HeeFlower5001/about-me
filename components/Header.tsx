@@ -1,12 +1,11 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useI18n } from "@/app/i18n-provider";
+import { useTab } from "@/app/tab-context";
 
 export default function Header() {
-  const pathname = usePathname();
+  const { activeTab, setActiveTab } = useTab();
   const { t } = useI18n();
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
@@ -18,7 +17,7 @@ export default function Header() {
   const navItems = [
     { 
       name: "Home", 
-      path: "/",
+      tab: "about" as const,
       label: t("nav.home"),
       icon: (
         <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -28,7 +27,7 @@ export default function Header() {
     },
     { 
       name: "Skills", 
-      path: "/skills",
+      tab: "skills" as const,
       label: t("nav.skills"),
       icon: (
         <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -38,7 +37,7 @@ export default function Header() {
     },
     { 
       name: "Projects", 
-      path: "/projects",
+      tab: "projects" as const,
       label: t("nav.projects"),
       icon: (
         <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -48,7 +47,7 @@ export default function Header() {
     },
     { 
       name: "Detail", 
-      path: "/detail",
+      tab: "detail" as const,
       label: t("nav.detail"),
       icon: (
         <svg className="w-7 h-7" viewBox="0 -960 960 960" fill="currentColor">
@@ -59,31 +58,31 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-6 left-1/2 z-50 -translate-x-1/2">
-      <nav className="flex items-center gap-10 rounded-full border-2 border-zinc-400 bg-white/90 px-10 py-5 shadow-xl backdrop-blur-md dark:border-zinc-600 dark:bg-black/90">
-        <ul className="flex gap-8">
+    <div className="rounded-2xl border-2 border-zinc-300 bg-white dark:bg-zinc-900 dark:border-zinc-700 p-2 shadow-xl">
+      <nav className="flex items-center gap-2">
+        <ul className="flex gap-2 w-full">
           {navItems.map((item) => (
             <li 
-              key={item.path}
-              className="relative"
-              onMouseEnter={() => setHoveredItem(item.path)}
+              key={item.tab}
+              className="relative flex-1"
+              onMouseEnter={() => setHoveredItem(item.tab)}
               onMouseLeave={() => setHoveredItem(null)}
             >
-              <Link
-                href={item.path}
-                className={`flex items-center gap-2 text-sm font-medium transition-all hover:scale-110 ${
-                  pathname === item.path
-                    ? "text-zinc-900 dark:text-zinc-50"
-                    : "text-zinc-600 dark:text-zinc-400"
+              <button
+                onClick={() => setActiveTab(item.tab)}
+                className={`w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium transition-all ${
+                  activeTab === item.tab
+                    ? 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 shadow-lg'
+                    : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800'
                 }`}
               >
-                {item.icon}
-              </Link>
+                <span>{item.icon}</span>
+              </button>
               
               {/* 커스텀 툴팁 */}
-              {hoveredItem === item.path && (
-                <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 animate-in fade-in slide-in-from-top-2 duration-200">
-                  <div className="whitespace-nowrap rounded-md border-2 border-zinc-400 dark:border-zinc-600 bg-white dark:bg-zinc-900 px-3 py-1.5 text-sm font-medium text-zinc-900 dark:text-white shadow-lg">
+              {hoveredItem === item.tab && (
+                <div className="absolute -top-14 left-1/2 -translate-x-1/2 animate-in fade-in slide-in-from-bottom-2 duration-200 z-50 pointer-events-none">
+                  <div className="whitespace-nowrap rounded-md border-2 border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-800 px-3 py-1.5 text-sm font-medium text-zinc-900 dark:text-white shadow-lg">
                     {item.label}
                   </div>
                 </div>
@@ -92,6 +91,6 @@ export default function Header() {
           ))}
         </ul>
       </nav>
-    </header>
+    </div>
   );
 }

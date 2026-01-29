@@ -31,8 +31,8 @@ export function LanguageSwitcher() {
 
       {/* 드롭다운 메뉴 */}
       {isOpen && (
-        <div className="absolute top-full mt-3 right-0 animate-in fade-in slide-in-from-top-2 duration-200">
-          <div className="rounded-lg border-2 border-zinc-400 bg-white/95 dark:bg-black/95 shadow-xl dark:border-zinc-600 backdrop-blur-md overflow-hidden">
+        <div className="absolute top-full mt-2 right-0 z-[60] animate-in fade-in slide-in-from-top-2 duration-200">
+          <div className="rounded-lg border-2 border-zinc-400 bg-white dark:bg-zinc-950 shadow-xl dark:border-zinc-600 overflow-hidden">
             {languages.map((lang) => (
               <button
                 key={lang.code}
