@@ -24,7 +24,7 @@ export function LanguageSwitcher() {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="px-3 py-1.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-all hover:scale-110"
+        className="w-10 px-3 py-1.5 text-sm font-medium text-center text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-all hover:scale-110"
       >
         {locale.toUpperCase()}
       </button>
