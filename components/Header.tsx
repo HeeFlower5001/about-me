@@ -7,9 +7,9 @@ import { useI18n } from "@/app/i18n-provider";
 
 export default function Header() {
   const pathname = usePathname();
+  const { t } = useI18n();
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
-  const { t } = useI18n();
 
   useEffect(() => {
     setMounted(true);
@@ -57,8 +57,6 @@ export default function Header() {
       )
     },
   ];
-
-  if (!mounted) return null;
 
   return (
     <header className="fixed top-6 left-1/2 z-50 -translate-x-1/2">

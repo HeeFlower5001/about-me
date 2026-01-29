@@ -51,7 +51,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     return typeof value === 'string' ? value : key;
   };
 
-  if (!mounted) return <>{children}</>;
+  if (!mounted) return null;
 
   return (
     <I18nContext.Provider value={{ locale, setLocale, t }}>
