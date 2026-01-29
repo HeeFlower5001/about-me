@@ -6,6 +6,8 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Providers } from "./providers";
 import { I18nProvider } from "./i18n-provider";
 import { TabProvider } from "./tab-context";
+import { LocaleHandler } from "./locale-handler";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,17 +31,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" suppressHydrationWarning>
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+          as="style"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>
           <I18nProvider>
             <TabProvider>
+              <LocaleHandler />
               {/* 우측 상단 컨트롤 버튼 */}
               <div className="fixed top-6 right-6 z-50">
-                <div className="flex items-center gap-4 rounded-full border-2 border-zinc-400 bg-white/90 px-6 py-3 shadow-xl backdrop-blur-md dark:border-zinc-600 dark:bg-black/90">
+                <div className="flex items-center gap-4 rounded-2xl border-2 p-2 shadow-xl" style={{ borderColor: 'var(--border-default)', backgroundColor: 'var(--card)' }}>
                   <ThemeToggle />
-                  <div className="h-6 w-px bg-zinc-300 dark:bg-zinc-700" />
+                  <div className="h-6 w-px" style={{ backgroundColor: 'var(--border-default)' }} />
                   <LanguageSwitcher />
                 </div>
               </div>

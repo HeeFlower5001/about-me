@@ -32,25 +32,25 @@ export default function Home() {
           <Header />
 
           {/* 컨텐츠 영역 */}
-          <div className="mt-6 rounded-2xl border-2 border-zinc-300 bg-white dark:bg-zinc-900 dark:border-zinc-700 p-8 shadow-xl min-h-[500px]">
+          <div className="mt-6 rounded-2xl border-2 p-8 shadow-xl min-h-[500px]" style={{ borderColor: 'var(--border-default)', backgroundColor: 'var(--card)' }}>
             {activeTab === 'about' && (
               <div className="animate-in fade-in duration-300">
-                <h2 className="text-3xl font-bold text-zinc-900 dark:text-zinc-50 mb-6">
+                <h2 className="text-3xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
                   {t('home.title')}
                 </h2>
-                <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6">
+                <p className="text-lg leading-relaxed mb-6" style={{ color: 'var(--text-secondary)' }}>
                   {t('home.description')}
                 </p>
                 <div className="space-y-4">
-                  <div className="p-4 rounded-lg bg-zinc-100 dark:bg-zinc-800">
-                    <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-2">🎯 목표</h3>
-                    <p className="text-zinc-600 dark:text-zinc-400">
+                  <div className="p-4 rounded-lg" style={{ backgroundColor: 'var(--surface)' }}>
+                    <h3 className="font-semibold mb-2" style={{ color: 'var(--foreground)' }}>🎯 목표</h3>
+                    <p className="" style={{ color: 'var(--text-secondary)' }}>
                       사용자 경험을 최우선으로 생각하는 개발자가 되고자 합니다.
                     </p>
                   </div>
-                  <div className="p-4 rounded-lg bg-zinc-100 dark:bg-zinc-800">
-                    <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-2">💡 관심사</h3>
-                    <p className="text-zinc-600 dark:text-zinc-400">
+                  <div className="p-4 rounded-lg" style={{ backgroundColor: 'var(--surface)' }}>
+                    <h3 className="font-semibold mb-2" style={{ color: 'var(--foreground)' }}>💡 관심사</h3>
+                    <p className="" style={{ color: 'var(--text-secondary)' }}>
                       웹 프론트엔드 개발, UI/UX 디자인, 성능 최적화
                     </p>
                   </div>
@@ -60,21 +60,21 @@ export default function Home() {
 
             {activeTab === 'skills' && (
               <div className="animate-in fade-in duration-300">
-                <h2 className="text-3xl font-bold text-zinc-900 dark:text-zinc-50 mb-6">
+                <h2 className="text-3xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
                   {t('skills.title')}
                 </h2>
-                <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-8">
+                <p className="text-lg mb-8" style={{ color: 'var(--text-secondary)' }}>
                   {t('skills.description')}
                 </p>
                 
                 <div className="space-y-6">
                   <div>
-                    <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-3">Frontend</h3>
+                    <h3 className="font-semibold mb-3" style={{ color: 'var(--foreground)' }}>Frontend</h3>
                     <div className="flex flex-wrap gap-2">
                       {['React', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'HTML/CSS'].map((skill) => (
                         <span
                           key={skill}
-                          className="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-lg font-medium"
+                          className="px-4 py-2 bg-blue-300 dark:bg-blue-900/50 text-blue-900 dark:text-blue-200 rounded-lg font-medium"
                         >
                           {skill}
                         </span>
@@ -83,12 +83,12 @@ export default function Home() {
                   </div>
                   
                   <div>
-                    <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-3">Tools</h3>
+                    <h3 className="font-semibold mb-3" style={{ color: 'var(--foreground)' }}>Tools</h3>
                     <div className="flex flex-wrap gap-2">
                       {['Git', 'GitHub', 'VS Code', 'Figma'].map((tool) => (
                         <span
                           key={tool}
-                          className="px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-lg font-medium"
+                          className="px-4 py-2 bg-green-300 dark:bg-green-900/50 text-green-900 dark:text-green-200 rounded-lg font-medium"
                         >
                           {tool}
                         </span>
@@ -101,19 +101,19 @@ export default function Home() {
 
             {activeTab === 'projects' && (
               <div className="animate-in fade-in duration-300">
-                <h2 className="text-3xl font-bold text-zinc-900 dark:text-zinc-50 mb-6">
+                <h2 className="text-3xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
                   {t('projects.title')}
                 </h2>
-                <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-8">
+                <p className="text-lg mb-8" style={{ color: 'var(--text-secondary)' }}>
                   {t('projects.description')}
                 </p>
                 
                 <div className="space-y-6">
-                  <div className="p-6 rounded-xl border-2 border-zinc-300 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors">
-                    <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-50 mb-2">
+                  <div className="p-6 rounded-xl border-2 transition-colors" style={{ borderColor: 'var(--border-default)', backgroundColor: 'var(--surface)' }}>
+                    <h3 className="text-xl font-bold mb-2" style={{ color: 'var(--foreground)' }}>
                       Portfolio Website
                     </h3>
-                    <p className="text-zinc-600 dark:text-zinc-400 mb-4">
+                    <p className="mb-4" style={{ color: 'var(--text-secondary)' }}>
                       Next.js와 Tailwind CSS를 사용한 개인 포트폴리오 사이트
                     </p>
                     <div className="flex flex-wrap gap-2">
@@ -128,21 +128,21 @@ export default function Home() {
 
             {activeTab === 'detail' && (
               <div className="animate-in fade-in duration-300">
-                <h2 className="text-3xl font-bold text-zinc-900 dark:text-zinc-50 mb-6">
+                <h2 className="text-3xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
                   {t('detail.title')}
                 </h2>
-                <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-8">
+                <p className="text-lg mb-8" style={{ color: 'var(--text-secondary)' }}>
                   {t('detail.description')}
                 </p>
                 
                 <div className="space-y-4">
-                  <div className="p-4 rounded-lg bg-zinc-100 dark:bg-zinc-800">
-                    <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-2">📧 연락처</h3>
-                    <p className="text-zinc-600 dark:text-zinc-400">contact@example.com</p>
+                  <div className="p-4 rounded-lg" style={{ backgroundColor: 'var(--surface)' }}>
+                    <h3 className="font-semibold mb-2" style={{ color: 'var(--foreground)' }}>📧 연락처</h3>
+                    <p style={{ color: 'var(--text-secondary)' }}>contact@example.com</p>
                   </div>
-                  <div className="p-4 rounded-lg bg-zinc-100 dark:bg-zinc-800">
-                    <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-2">📍 위치</h3>
-                    <p className="text-zinc-600 dark:text-zinc-400">Seoul, South Korea</p>
+                  <div className="p-4 rounded-lg" style={{ backgroundColor: 'var(--surface)' }}>
+                    <h3 className="font-semibold mb-2" style={{ color: 'var(--foreground)' }}>📍 위치</h3>
+                    <p style={{ color: 'var(--text-secondary)' }}>Seoul, South Korea</p>
                   </div>
                 </div>
               </div>

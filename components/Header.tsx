@@ -58,7 +58,7 @@ export default function Header() {
   ];
 
   return (
-    <div className="rounded-2xl border-2 border-zinc-300 bg-white dark:bg-zinc-900 dark:border-zinc-700 p-2 shadow-xl">
+    <div className="rounded-2xl border-2 p-2 shadow-xl" style={{ borderColor: 'var(--border-default)', backgroundColor: 'var(--card)' }}>
       <nav className="flex items-center gap-2">
         <ul className="flex gap-2 w-full">
           {navItems.map((item) => (
@@ -72,9 +72,10 @@ export default function Header() {
                 onClick={() => setActiveTab(item.tab)}
                 className={`w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium transition-all ${
                   activeTab === item.tab
-                    ? 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 shadow-lg'
+                    ? 'text-white dark:text-white shadow-lg'
                     : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800'
                 }`}
+                style={activeTab === item.tab ? { backgroundColor: 'var(--accent-primary)' } : {}}
               >
                 <span>{item.icon}</span>
               </button>
