@@ -6,6 +6,17 @@ import { useState } from 'react';
 export function ProfileCard() {
   const { t } = useI18n();
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText('HeeFlower5001@gmail.com');
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1200);
+    } catch {
+      setCopied(false);
+    }
+  };
 
   return (
     <>
@@ -15,7 +26,8 @@ export function ProfileCard() {
           <div className="mb-6 flex justify-center">
             <button
               onClick={() => setIsImageModalOpen(true)}
-              className="relative w-full aspect-square max-w-[256px] rounded-2xl overflow-hidden group cursor-pointer"
+              className="relative w-full aspect-square max-w-[256px] rounded-2xl overflow-hidden group cursor-pointer border-2"
+              style={{ borderColor: 'var(--border-default)' }}
             >
               <img 
                 src="https://picsum.photos/512/512" 
@@ -39,25 +51,52 @@ export function ProfileCard() {
         {/* 이름 & 직책 */}
         <div className="text-center mb-6">
           <h2 className="text-2xl font-bold mb-2" style={{ color: 'var(--foreground)' }}>
-            김희승
+            {t('profile.name')}
           </h2>
           <p className="text-zinc-600 dark:text-zinc-400">
             Software Developer
           </p>
         </div>
 
-        {/* 이메일 & 위치 정보 */}
+        {/* 프로필 정보 */}
         <div className="space-y-3">
-          {/* 이메일 */}
+          {/* 생년월일 */}
           <div className="flex items-start gap-3">
             <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--text-secondary)' }}>
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
             <div className="flex-1 min-w-0">
-              <p className="text-xs font-medium" style={{ color: 'var(--text-muted)' }}>Email</p>
-              <a href="mailto:HeeFlower5001@gmail.com" className="text-sm break-all" style={{ color: 'var(--text-secondary)' }}>
-                HeeFlower5001@gmail.com
-              </a>
+              <p className="text-xs font-medium" style={{ color: 'var(--text-muted)' }}>{t('profile.birthDate')}</p>
+              <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
+                2000. 11. 21.
+              </p>
+            </div>
+          </div>
+
+          {/* MBTI */}
+          <div className="flex items-start gap-3">
+            <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--text-secondary)' }}>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 20a8 8 0 0116 0" />
+            </svg>
+            <div className="flex-1 min-w-0">
+              <p className="text-xs font-medium" style={{ color: 'var(--text-muted)' }}>{t('profile.mbti')}</p>
+              <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
+                INFJ
+              </p>
+            </div>
+          </div>
+
+          {/* 소속 조직 */}
+          <div className="flex items-start gap-3">
+            <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--text-secondary)' }}>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5.5m0 0H9m11 0v-3.5a6.5 6.5 0 00-13 0V21" />
+            </svg>
+            <div className="flex-1 min-w-0">
+              <p className="text-xs font-medium" style={{ color: 'var(--text-muted)' }}>{t('profile.organization')}</p>
+              <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
+                {t('profile.organizationName')}
+              </p>
             </div>
           </div>
 
@@ -78,6 +117,38 @@ export function ProfileCard() {
 
         {/* 구분선 */}
         <div className="my-6 h-px" style={{ backgroundColor: 'var(--border-default)' }}></div>
+
+        {/* 이메일 (구분선 아래) */}
+        <div className="mb-6">
+          <div className="flex items-start gap-3">
+            <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--text-secondary)' }}>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <div className="flex-1 min-w-0">
+              <p className="text-xs font-medium" style={{ color: 'var(--text-muted)' }}>Email</p>
+              <div className="flex items-center gap-2">
+                <a href="mailto:HeeFlower5001@gmail.com" className="text-sm break-all" style={{ color: 'var(--text-secondary)' }}>
+                  HeeFlower5001@gmail.com
+                </a>
+                <button
+                  type="button"
+                  onClick={handleCopyEmail}
+                  className="p-1 rounded-md border-2 transition-all hover:bg-zinc-200 dark:hover:bg-zinc-700 cursor-pointer"
+                  style={{ 
+                    borderColor: 'var(--border-default)', 
+                    color: copied ? 'var(--accent-primary)' : 'var(--text-secondary)'
+                  }}
+                  aria-label="Copy email"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7a2 2 0 012-2h7a2 2 0 012 2v10a2 2 0 01-2 2h-7a2 2 0 01-2-2V7z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 9H5a2 2 0 00-2 2v8a2 2 0 002 2h7a2 2 0 002-2v-1" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* 링크 버튼들 */}
         <div className="flex flex-col gap-3">

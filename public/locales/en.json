@@ -1,9 +1,19 @@
 {
   "nav": {
     "home": "Home",
+    "history": "History",
     "skills": "Skills",
     "projects": "Projects",
-    "detail": "Detail"
+    "contact": "Contact",
+    "personal": "Personal"
+  },
+  "profile": {
+    "name": "Hee Seung Kim",
+    "birthDate": "BirthDate",
+    "mbti": "MBTI",
+    "organization": "Organization",
+    "organizationName": "Korea Aerospace University",
+    "location": "Location"
   },
   "home": {
     "title": "Hi there 👋",
@@ -17,8 +27,29 @@
     "title": "Skills",
     "description": "My skills and abilities."
   },
-  "detail": {
-    "title": "Detail",
-    "description": "Detailed information page."
+  "history": {
+    "title": "History",
+    "description": "A short timeline of what I've been working on.",
+    "items": {
+      "2025": "Focused on Next.js, design systems, and shipping side projects.",
+      "2024": "Built portfolio v2 and improved UI/UX fundamentals."
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Let’s get in touch."
+  },
+  "personal": {
+    "title": "Personal",
+    "description": "A few things that describe me beyond work.",
+    "favorites": {
+      "title": "Favorites",
+      "text": "Design systems, clean code, and subtle animations."
+    },
+    "values": {
+      "title": "Values",
+      "text": "Curiosity, clarity, and consistency in collaboration."
+    }
   }
 }
+

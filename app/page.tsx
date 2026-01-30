@@ -58,6 +58,28 @@ export default function Home() {
               </div>
             )}
 
+            {activeTab === 'history' && (
+              <div className="animate-in fade-in duration-300">
+                <h2 className="text-3xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
+                  {t('history.title')}
+                </h2>
+                <p className="text-lg mb-8" style={{ color: 'var(--text-secondary)' }}>
+                  {t('history.description')}
+                </p>
+
+                <div className="space-y-4">
+                  <div className="p-4 rounded-lg" style={{ backgroundColor: 'var(--surface)' }}>
+                    <h3 className="font-semibold mb-2" style={{ color: 'var(--foreground)' }}>2025</h3>
+                    <p style={{ color: 'var(--text-secondary)' }}>{t('history.items.2025')}</p>
+                  </div>
+                  <div className="p-4 rounded-lg" style={{ backgroundColor: 'var(--surface)' }}>
+                    <h3 className="font-semibold mb-2" style={{ color: 'var(--foreground)' }}>2024</h3>
+                    <p style={{ color: 'var(--text-secondary)' }}>{t('history.items.2024')}</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {activeTab === 'skills' && (
               <div className="animate-in fade-in duration-300">
                 <h2 className="text-3xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
@@ -126,13 +148,13 @@ export default function Home() {
               </div>
             )}
 
-            {activeTab === 'detail' && (
+            {activeTab === 'contact' && (
               <div className="animate-in fade-in duration-300">
                 <h2 className="text-3xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
-                  {t('detail.title')}
+                  {t('contact.title')}
                 </h2>
                 <p className="text-lg mb-8" style={{ color: 'var(--text-secondary)' }}>
-                  {t('detail.description')}
+                  {t('contact.description')}
                 </p>
                 
                 <div className="space-y-4">
@@ -143,6 +165,28 @@ export default function Home() {
                   <div className="p-4 rounded-lg" style={{ backgroundColor: 'var(--surface)' }}>
                     <h3 className="font-semibold mb-2" style={{ color: 'var(--foreground)' }}>📍 위치</h3>
                     <p style={{ color: 'var(--text-secondary)' }}>Seoul, South Korea</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {activeTab === 'personal' && (
+              <div className="animate-in fade-in duration-300">
+                <h2 className="text-3xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
+                  {t('personal.title')}
+                </h2>
+                <p className="text-lg mb-8" style={{ color: 'var(--text-secondary)' }}>
+                  {t('personal.description')}
+                </p>
+
+                <div className="space-y-4">
+                  <div className="p-4 rounded-lg" style={{ backgroundColor: 'var(--surface)' }}>
+                    <h3 className="font-semibold mb-2" style={{ color: 'var(--foreground)' }}>💬 {t('personal.favorites.title')}</h3>
+                    <p style={{ color: 'var(--text-secondary)' }}>{t('personal.favorites.text')}</p>
+                  </div>
+                  <div className="p-4 rounded-lg" style={{ backgroundColor: 'var(--surface)' }}>
+                    <h3 className="font-semibold mb-2" style={{ color: 'var(--foreground)' }}>🌿 {t('personal.values.title')}</h3>
+                    <p style={{ color: 'var(--text-secondary)' }}>{t('personal.values.text')}</p>
                   </div>
                 </div>
               </div>

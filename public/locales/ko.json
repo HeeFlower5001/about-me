@@ -1,9 +1,19 @@
 {
   "nav": {
     "home": "홈",
+    "history": "히스토리",
     "skills": "기술",
     "projects": "프로젝트",
-    "detail": "상세"
+    "contact": "문의",
+    "personal": "개인"
+  },
+  "profile": {
+    "name": "김희승",
+    "birthDate": "생년월일",
+    "mbti": "MBTI",
+    "organization": "소속",
+    "organizationName": "한국항공대학교",
+    "location": "Location"
   },
   "home": {
     "title": "안녕하세요 👋",
@@ -17,8 +27,29 @@
     "title": "Skills",
     "description": "보유 기술과 능력을 소개합니다."
   },
-  "detail": {
-    "title": "Detail",
-    "description": "상세 정보 페이지입니다."
+  "history": {
+    "title": "히스토리",
+    "description": "최근 활동과 성장 과정을 간단히 정리했어요.",
+    "items": {
+      "2025": "Next.js와 디자인 시스템 중심으로 프로젝트를 진행했습니다.",
+      "2024": "포트폴리오 v2를 만들고 UI/UX 기본기를 다졌습니다."
+    }
+  },
+  "contact": {
+    "title": "문의",
+    "description": "편하게 연락 주세요."
+  },
+  "personal": {
+    "title": "퍼스널",
+    "description": "일 외의 저를 소개하는 작은 이야기입니다.",
+    "favorites": {
+      "title": "좋아하는 것",
+      "text": "디자인 시스템, 깔끔한 코드, 절제된 애니메이션"
+    },
+    "values": {
+      "title": "가치관",
+      "text": "호기심, 명확한 소통, 일관된 협업"
+    }
   }
 }
+

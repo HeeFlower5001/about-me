@@ -26,6 +26,19 @@ export default function Header() {
       )
     },
     { 
+      name: "History", 
+      tab: "history" as const,
+      label: t("nav.history"),
+      icon: (
+        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 3h7l5 5v13a1 1 0 01-1 1H7a1 1 0 01-1-1V4a1 1 0 011-1z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 3v5h5" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 13h8" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 17h8" />
+        </svg>
+      )
+    },
+    { 
       name: "Skills", 
       tab: "skills" as const,
       label: t("nav.skills"),
@@ -46,20 +59,32 @@ export default function Header() {
       )
     },
     { 
-      name: "Detail", 
-      tab: "detail" as const,
-      label: t("nav.detail"),
+      name: "Contact", 
+      tab: "contact" as const,
+      label: t("nav.contact"),
       icon: (
-        <svg className="w-7 h-7" viewBox="0 -960 960 960" fill="currentColor">
-          <path d="M838-393q5-23 0-46t-15-45q-17 16-30 35.5T775-406q-5 23 .5 45.5T790-316q17-16 30-35t18-42ZM207-626q19 19 43.5 25t47.5-2l-19-19q-18-18-43-24.5t-48 1.5l19 19Zm73-180-79 78q36-3 71.5 9t63.5 40l19 19q8-23 3-48t-25-44l-53-54ZM823-80 357-544q-49 30-107 23.5T150-569L40-680l240-239 110 110q43 43 48.5 101T414-601l289 289q-8-26-10-54t3-56q6-30 20.5-56t34-48.5q19.5-22.5 44.5-41t52-32.5q39 48 60 105t9 117q-11 51-42.5 91T797-218l82 82-56 56ZM310-650Zm334 166-56-57 212-212v-47h-47L541-588l-57-56 236-236h160v160L644-484ZM142-92l-50-50q-12-12-12-28t12-28l116-117-88-88 28-28q23-23 57-23t57 23l4 5 48-48 57 56-48 48 47 47 48-48 56 57-48 48 5 4q23 23 23 57t-23 57l-28 28-88-88L198-92q-12 12-28 12t-28-12Z"/>
+        <svg className="w-7 h-7 translate-y-[1px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-16 8h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2z" />
         </svg>
       )
     },
   ];
 
+  const auxItem = {
+    name: "Personal",
+    tab: "personal" as const,
+    label: t("nav.personal"),
+    icon: (
+      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 20a8 8 0 0116 0" />
+      </svg>
+    )
+  };
+
   return (
     <div className="rounded-2xl border-2 p-2 shadow-xl" style={{ borderColor: 'var(--border-default)', backgroundColor: 'var(--card)' }}>
-      <nav className="flex items-center gap-2">
+      <nav className="flex items-center gap-3">
         <ul className="flex gap-2 w-full">
           {navItems.map((item) => (
             <li 
@@ -77,7 +102,7 @@ export default function Header() {
                 }`}
                 style={activeTab === item.tab ? { backgroundColor: 'var(--accent-primary)' } : {}}
               >
-                <span>{item.icon}</span>
+                <span className="flex items-center justify-center w-7 h-7">{item.icon}</span>
               </button>
               
               {/* 커스텀 툴팁 */}
@@ -91,6 +116,37 @@ export default function Header() {
             </li>
           ))}
         </ul>
+
+        <div
+          className="relative"
+          onMouseEnter={() => setHoveredItem(auxItem.tab)}
+          onMouseLeave={() => setHoveredItem(null)}
+        >
+          <button
+            onClick={() => setActiveTab(auxItem.tab)}
+            className={`grid grid-cols-[16px_1fr] items-center gap-2 px-3 py-2 rounded-lg border-2 text-sm font-medium transition-all w-[112px] ${
+              activeTab === auxItem.tab
+                ? 'text-white shadow-md'
+                : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800'
+            }`}
+            style={
+              activeTab === auxItem.tab
+                ? { backgroundColor: 'var(--accent-primary)', borderColor: 'var(--accent-primary)' }
+                : { borderColor: 'var(--border-default)' }
+            }
+          >
+            <span className="flex items-center justify-center w-4 h-4">{auxItem.icon}</span>
+            <span className="hidden sm:inline whitespace-nowrap text-center">{auxItem.label}</span>
+          </button>
+
+          {hoveredItem === auxItem.tab && (
+            <div className="absolute -top-14 left-1/2 -translate-x-1/2 animate-in fade-in slide-in-from-bottom-2 duration-200 z-50 pointer-events-none">
+              <div className="whitespace-nowrap rounded-md border-2 border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-800 px-3 py-1.5 text-sm font-medium text-zinc-900 dark:text-white shadow-lg">
+                {auxItem.label}
+              </div>
+            </div>
+          )}
+        </div>
       </nav>
     </div>
   );
