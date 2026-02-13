@@ -68,7 +68,7 @@ export function ProfileCard() {
             <div className="flex-1 min-w-0">
               <p className="text-xs font-medium" style={{ color: 'var(--text-muted)' }}>{t('profile.birthDate')}</p>
               <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
-                2000. 11. 21.
+                {t('profile.birthDateValue')}
               </p>
             </div>
           </div>

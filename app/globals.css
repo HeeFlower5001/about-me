@@ -18,6 +18,25 @@
     
     --accent-primary: #003d7a;    /* Navy Blue */
     --accent-secondary: #FFD700;  /* Gold */
+
+    /* Starfield Config */
+    --star-count-sm: 30;
+    --star-count-lg: 15;
+    --star-size-sm-min: 4.5;
+    --star-size-sm-max: 6.5;
+    --star-size-lg-min: 7.0;
+    --star-size-lg-max: 10.5;
+    --star-color: 0, 0, 0;
+    --star-opacity-sm-min: 0.6;
+    --star-opacity-sm-max: 1;
+    --star-opacity-lg-min: 0.5;
+    --star-opacity-lg-max: 0.85;
+    --star-layer-1-opacity: 0.9;
+    --star-layer-2-opacity: 0.7;
+    --star-twinkle-fast: 2.4s;
+    --star-twinkle-slow: 3.2s;
+    --star-drift-fast: 24s;
+    --star-drift-slow: 36s;
     
     /* Fonts */
     --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
@@ -41,11 +60,19 @@
     
     --accent-primary: #4A90E2;    /* Light Navy */
     --accent-secondary: #FFD700;  /* Gold */
+
+    /* Starfield Config */
+    --star-color: 255, 255, 255;
     
     /* Fonts (동일) */
     --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
     --font-mono: var(--font-geist-mono), "Geist Mono", Consolas, monospace;
   }
+}
+
+/* 다크 모드 클래스가 body에 붙는 경우 대비 */
+body.dark {
+  --star-color: 255, 255, 255;
 }
 
 /* 기본 폰트 */
@@ -55,9 +82,58 @@ body {
   font-family: var(--font-sans);
   transition: background-color 0.3s ease, color 0.3s ease;
   min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
 }
 
 /* 코드 블록용 */
 code, pre {
   font-family: var(--font-mono);
+}
+
+/* 별빛 배경 */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body::before {
+  background: var(
+    --star-layer-1,
+    radial-gradient(2px 2px at 12% 18%, rgba(var(--star-color), 0.9), transparent 60%),
+    radial-gradient(2px 2px at 62% 28%, rgba(var(--star-color), 0.8), transparent 60%),
+    radial-gradient(2px 2px at 88% 22%, rgba(var(--star-color), 0.7), transparent 60%),
+    radial-gradient(2px 2px at 22% 52%, rgba(var(--star-color), 0.6), transparent 60%),
+    radial-gradient(2px 2px at 90% 88%, rgba(var(--star-color), 0.6), transparent 60%)
+  );
+  opacity: var(--star-layer-1-opacity);
+  animation: star-twinkle var(--star-twinkle-fast) ease-in-out infinite, star-drift var(--star-drift-fast) linear infinite;
+}
+
+body::after {
+  background: var(
+    --star-layer-2,
+    radial-gradient(3.5px 3.5px at 18% 34%, rgba(var(--star-color), 0.6), transparent 60%),
+    radial-gradient(3.5px 3.5px at 66% 18%, rgba(var(--star-color), 0.6), transparent 60%),
+    radial-gradient(3.5px 3.5px at 92% 40%, rgba(var(--star-color), 0.5), transparent 60%),
+    radial-gradient(3.5px 3.5px at 52% 84%, rgba(var(--star-color), 0.5), transparent 60%),
+    radial-gradient(3.5px 3.5px at 10% 60%, rgba(var(--star-color), 0.4), transparent 60%)
+  );
+  opacity: var(--star-layer-2-opacity);
+  animation: star-twinkle var(--star-twinkle-slow) ease-in-out infinite reverse, star-drift var(--star-drift-slow) linear infinite reverse;
+}
+
+@keyframes star-twinkle {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes star-drift {
+  0% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(22px, -18px, 0); }
+  100% { transform: translate3d(0, 0, 0); }
 }

@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState, ReactNode } from 'react';
 
-type TabType = 'about' | 'history' | 'skills' | 'projects' | 'contact' | 'personal';
+type TabType = 'about' | 'history' | 'skills' | 'projects' | 'personal';
 
 interface TabContextType {
   activeTab: TabType;

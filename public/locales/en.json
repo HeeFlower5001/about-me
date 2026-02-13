@@ -4,19 +4,19 @@
     "history": "History",
     "skills": "Skills",
     "projects": "Projects",
-    "contact": "Contact",
     "personal": "Personal"
   },
   "profile": {
-    "name": "Hee Seung Kim",
+    "name": "Hee Seung Kim !",
     "birthDate": "BirthDate",
+    "birthDateValue": "November 21, 2000",
     "mbti": "MBTI",
     "organization": "Organization",
     "organizationName": "Korea Aerospace University",
     "location": "Location"
   },
   "home": {
-    "title": "Hi there 👋",
+    "title": "Welcome 👋",
     "description": "This is my portfolio website."
   },
   "projects": {
@@ -33,6 +33,57 @@
     "items": {
       "2025": "Focused on Next.js, design systems, and shipping side projects.",
       "2024": "Built portfolio v2 and improved UI/UX fundamentals."
+    },
+    "education": {
+      "title": "🎓 Education",
+      "items": [
+        {
+          "school": "Korea Aerospace University",
+          "period": "Mar 2024 – Present",
+          "major": "Software",
+          "type": "Transfer"
+        },
+        {
+          "school": "Kunsan National University",
+          "period": "Mar 2020 – Dec 2021",
+          "major": "Computer Science",
+          "type": "Dropout"
+        },
+        {
+          "school": "Incheon Inje High School",
+          "period": "Mar 2016 – Feb 2019"
+        },
+        {
+          "school": "Incheon Seongli Middle School",
+          "period": "Mar 2014 – Feb 2016"
+        },
+        {
+          "school": "Incheon Seongli Elementary School",
+          "period": "Feb 2007 – Feb 2013"
+        }
+      ]
+    },
+    "certifications": {
+      "title": "📜 Certifications",
+      "items": [
+        {
+          "name": "Information Systems Professional",
+          "date": "Jun 2025"
+        }
+      ]
+    },
+    "awards": {
+      "title": "🏆 Awards",
+      "items": [
+        {
+          "title": "AI Convergence Capstone Design Excellence Award",
+          "date": "Dec 2025"
+        },
+        {
+          "title": "2025 Spring Business Idea Competition Excellence Award",
+          "date": "Jun 2025"
+        }
+      ]
     }
   },
   "contact": {
@@ -42,9 +93,22 @@
   "personal": {
     "title": "Personal",
     "description": "A few things that describe me beyond work.",
+    "tags": {
+      "intro": "Kids",
+      "favorites": "Favorites",
+      "hobbies": "Hobbies"
+    },
+    "intro": {
+      "title": "Kids",
+      "text": "I value the process of learning and growing with kids."
+    },
     "favorites": {
       "title": "Favorites",
       "text": "Design systems, clean code, and subtle animations."
+    },
+    "hobbies": {
+      "title": "Hobbies",
+      "text": "I enjoy exploring new technologies and building small projects."
     },
     "values": {
       "title": "Values",

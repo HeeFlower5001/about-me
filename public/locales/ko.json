@@ -4,19 +4,19 @@
     "history": "히스토리",
     "skills": "기술",
     "projects": "프로젝트",
-    "contact": "문의",
     "personal": "개인"
   },
   "profile": {
     "name": "김희승",
     "birthDate": "생년월일",
+    "birthDateValue": "2000. 11. 21.",
     "mbti": "MBTI",
     "organization": "소속",
     "organizationName": "한국항공대학교",
     "location": "Location"
   },
   "home": {
-    "title": "안녕하세요 👋",
+    "title": "반갑습니다 👋",
     "description": "저를 소개하는 포트폴리오 사이트입니다."
   },
   "projects": {
@@ -33,6 +33,57 @@
     "items": {
       "2025": "Next.js와 디자인 시스템 중심으로 프로젝트를 진행했습니다.",
       "2024": "포트폴리오 v2를 만들고 UI/UX 기본기를 다졌습니다."
+    },
+    "education": {
+      "title": "🎓 교육",
+      "items": [
+        {
+          "school": "한국항공대학교",
+          "period": "2024. 03. - ing",
+          "major": "소프트웨어학과",
+          "type": "일반편입"
+        },
+        {
+          "school": "군산대학교",
+          "period": "2020. 03 - 2021. 12",
+          "major": "컴퓨터정보공학과",
+          "type": "중퇴"
+        },
+        {
+          "school": "인천인제고등학교",
+          "period": "2016. 03 - 2019. 02"
+        },
+        {
+          "school": "인천성리중학교",
+          "period": "2014. 03 - 2016. 02"
+        },
+        {
+          "school": "인천성리초등학교",
+          "period": "2007. 02 - 2013. 02"
+        }
+      ]
+    },
+    "certifications": {
+      "title": "📜 자격증",
+      "items": [
+        {
+          "name": "정보처리기사",
+          "date": "2025. 06."
+        }
+      ]
+    },
+    "awards": {
+      "title": "🏆 수상",
+      "items": [
+        {
+          "title": "AI융합 Capstone Design 우수상",
+          "date": "2025. 12."
+        },
+        {
+          "title": "2025년 1학기 창업아이디어 경진대회 우수상",
+          "date": "2025. 06."
+        }
+      ]
     }
   },
   "contact": {
@@ -42,9 +93,22 @@
   "personal": {
     "title": "퍼스널",
     "description": "일 외의 저를 소개하는 작은 이야기입니다.",
+    "tags": {
+      "intro": "아이들",
+      "favorites": "좋아하는 것",
+      "hobbies": "취미"
+    },
+    "intro": {
+      "title": "아이들",
+      "text": "아이들과 함께 배우고 성장하는 과정을 소중하게 생각합니다."
+    },
     "favorites": {
       "title": "좋아하는 것",
       "text": "디자인 시스템, 깔끔한 코드, 절제된 애니메이션"
+    },
+    "hobbies": {
+      "title": "취미",
+      "text": "새로운 기술을 탐색하고 작은 프로젝트를 만드는 것을 즐깁니다."
     },
     "values": {
       "title": "가치관",
