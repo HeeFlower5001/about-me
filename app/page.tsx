@@ -286,8 +286,8 @@ export default function Home() {
   }, [typedText, isDeleting, typingIndex, typingPhrases]);
 
   const introMessage = locale === 'ko'
-    ? ['Spring 기반 서버 개발을 주력으로 다루고 있습니다.', '문제를 깊이 이해하는 개발자를 지향합니다.']
-    : ['I primarily focus on Spring-based backend development.', 'I strive to deeply understand problems before solving them.'];
+    ? ['Spring 기반 서버 개발을 주력으로 하며,', '문제의 본질과 그 해결이 만들어내는 가치를 중요하게 생각합니다.']
+    : ['I primarily focus on Spring-based backend development,', 'and value the impact created by addressing the core of a problem.'];
 
   const currentWork = locale === 'ko'
     ? ['AI를 활용한 비서 애플리케이션 개발', '과거 프로젝트 리팩토링 및 문서화']
