@@ -126,7 +126,7 @@ export default function Header() {
             }
           >
             <span className="flex items-center justify-center w-4 h-4">{auxItem.icon}</span>
-            <span className="hidden sm:inline whitespace-nowrap text-center">{auxItem.label}</span>
+            <span className="inline whitespace-nowrap text-center">{auxItem.label}</span>
           </button>
 
           {hoveredItem === auxItem.tab && (
