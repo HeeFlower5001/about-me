@@ -30,7 +30,7 @@ export function ProfileCard() {
               style={{ borderColor: 'var(--border-default)' }}
             >
               <img 
-                src="https://picsum.photos/512/512" 
+                src="/images/profile.jpg" 
                 alt="Profile" 
                 className="w-full h-full object-cover transition-transform group-hover:scale-105" 
               />
@@ -208,7 +208,7 @@ export function ProfileCard() {
           onClick={(e) => e.stopPropagation()}
         >
           <img 
-            src="https://picsum.photos/512/512" 
+            src="/images/profile.jpg" 
             alt="Profile" 
             className="w-full h-full object-contain rounded-2xl shadow-2xl" 
           />
