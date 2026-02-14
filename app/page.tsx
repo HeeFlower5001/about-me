@@ -741,29 +741,30 @@ export default function Home() {
                         {locale === 'ko' ? (
                           <>
                             <p className="text-base" style={{ color: 'var(--text-secondary)' }}>
-                              우연히 시작한 아이들과의 시간이
-                              의미 있는 성장과 경험으로 이어졌습니다.
+                              우연히 시작한 아이들과의 시간이 깊이 있는 성장과 경험으로 이어졌습니다.
                             </p>
                             <p className="text-base" style={{ color: 'var(--text-secondary)' }}>
-                              아이들과의 시간을 더 잘 만들어가기 위해
-                              계속해서 고민하고 있습니다.
+                              아이들과의 시간을 더 잘 만들어가기 위해,
+                              아이들 앞에서 어떤 어른으로 서야 하는지 계속해서 고민하고 있습니다.
                             </p>
                             <p className="text-base" style={{ color: 'var(--text-secondary)' }}>
-                              아이들과의 경험을 바탕으로,
-                              관련된 다양한 프로젝트에도 도전해보고 싶습니다.
+                              이러한 고민과 경험을 바탕으로,
+                              아이들과 관련된 다양한 프로젝트에도 도전해보고 싶습니다.
                             </p>
                           </>
                         ) : (
                           <>
                             <p className="text-base" style={{ color: 'var(--text-secondary)' }}>
                               The time I spent with children, which began by chance,
-                              has led to meaningful growth and experience.
+                              has led to deep and meaningful growth and experience.
                             </p>
                             <p className="text-base" style={{ color: 'var(--text-secondary)' }}>
-                              I continue to think about how to make those moments even better.
+                              To create better moments with children,
+                              I continuously reflect on what kind of adult I should be in front of them.
                             </p>
                             <p className="text-base" style={{ color: 'var(--text-secondary)' }}>
-                              Building on that experience, I want to take on more child-related projects.
+                              Based on these reflections and experiences,
+                              I want to take on diverse projects related to children.
                             </p>
                           </>
                         )}
