@@ -340,15 +340,15 @@ export default function Home() {
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-8 mt-20">
-      {/* 데스크톱: 좌우 레이아웃, 모바일: 세로 스택 */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      {/* 데스크톱 레이아웃 고정 */}
+      <div className="grid grid-cols-12 gap-8">
         {/* 왼쪽: 프로필 카드 (모바일에서는 상단) */}
-        <div className="lg:col-span-4">
+        <div className="col-span-4">
           <ProfileCard />
         </div>
 
         {/* 오른쪽: 헤더 & 컨텐츠 */}
-        <div className="lg:col-span-8">
+        <div className="col-span-8">
           {/* 헤더 */}
           <Header />
 
@@ -357,8 +357,8 @@ export default function Home() {
             {activeTab === 'about' && (
               <div className="animate-in fade-in duration-300">
                 <div className="flex flex-col gap-6">
-                  <div className="flex flex-col gap-6 md:flex-row md:items-center">
-                  <div className="md:w-[220px] shrink-0">
+                  <div className="flex flex-row items-center gap-6">
+                  <div className="w-[220px] shrink-0">
                     <div className="rounded-2xl border-2 p-4 shadow-xl" style={{ borderColor: 'var(--border-default)', backgroundColor: 'var(--surface)' }}>
                       <svg viewBox="0 0 240 160" className="w-full h-auto">
                         <rect x="28" y="22" width="184" height="104" rx="10" fill="var(--card)" stroke="var(--border-default)" strokeWidth="3" />
@@ -535,9 +535,9 @@ export default function Home() {
                 <div className="space-y-6">
                   {projectsData.map((project, idx) => (
                     <div key={idx} className="p-6 rounded-xl border-2" style={{ borderColor: 'var(--border-default)', backgroundColor: 'var(--card)' }}>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      <div className="grid grid-cols-3 gap-6">
                         {/* 이미지 영역 */}
-                        <div className="md:col-span-1">
+                        <div className="col-span-1">
                           <div className="w-full h-48 rounded-lg border-2 overflow-hidden bg-black" style={{ borderColor: 'var(--border-default)' }}>
                             {project.image && (
                               <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
@@ -546,7 +546,7 @@ export default function Home() {
                         </div>
                         
                         {/* 정보 영역 */}
-                        <div className="md:col-span-2 flex flex-col justify-between">
+                        <div className="col-span-2 flex flex-col justify-between">
                           {/* 내용 영역 */}
                           <div>
                             {/* 제목 및 기간 */}

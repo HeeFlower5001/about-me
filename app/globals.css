@@ -75,6 +75,13 @@ body.dark {
   --star-color: 255, 255, 255;
 }
 
+html,
+body {
+  min-width: 2005px;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 /* 기본 폰트 */
 body {
   background: var(--background);
@@ -83,7 +90,7 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
   min-height: 100vh;
   position: relative;
-  overflow-x: hidden;
+  overflow-x: auto;
 }
 
 /* 코드 블록용 */
