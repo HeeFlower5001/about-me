@@ -33,6 +33,19 @@ export default function RootLayout({
     <html lang="ko" suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=2005" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (typeof window !== 'undefined') {
+                window.addEventListener('load', () => {
+                  // 2005px 콘텐츠의 중앙 기준으로 초기 스크롤 위치 설정
+                  const scrollPos = (2005 - window.innerWidth) / 2;
+                  window.scrollTo(Math.max(0, scrollPos), 0);
+                });
+              }
+            `,
+          }}
+        />
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
