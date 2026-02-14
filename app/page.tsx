@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { ProfileCard } from '@/components/ProfileCard';
 import Header from '@/components/Header';
 import { useTab } from '@/app/tab-context';
+import { GitHubContributionGraph } from '@/components/GitHubContributionGraph';
 import 'devicon/devicon.min.css';
 
 export default function Home() {
@@ -395,6 +396,11 @@ export default function Home() {
                         <li key={item}>• {item}</li>
                       ))}
                     </ul>
+                  </div>
+
+                  {/* GitHub Contribution Graph */}
+                  <div className="mt-8">
+                    <GitHubContributionGraph />
                   </div>
                 </div>
               </div>
