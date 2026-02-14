@@ -580,7 +580,7 @@ export default function Home() {
 
                           {/* 기여한 부분 */}
                           <div className="mb-3">
-                            <p className="text-sm font-semibold" style={{ color: 'var(--foreground)' }}>👨‍💻 기여</p>
+                            <p className="text-sm font-semibold" style={{ color: 'var(--foreground)' }}>👨‍💻 {t('projects.labels.contribution')}</p>
                             <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>{project.contribution}</p>
                           </div>
 
@@ -589,7 +589,7 @@ export default function Home() {
                             <>
                               <hr style={{ borderColor: 'var(--border-default)', margin: '1rem 0' }} />
                               <div className="mb-4">
-                                <p className="text-sm font-semibold" style={{ color: 'var(--foreground)' }}>⭐ 특이사항</p>
+                                <p className="text-sm font-semibold" style={{ color: 'var(--foreground)' }}>⭐ {t('projects.labels.note')}</p>
                                 <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>{project.note}</p>
                               </div>
                             </>

@@ -7,7 +7,7 @@
     "personal": "Personal"
   },
   "profile": {
-    "name": "Hee Seung Kim !",
+    "name": "Hee Seung Kim",
     "birthDate": "BirthDate",
     "birthDateValue": "November 21, 2000",
     "mbti": "MBTI",
@@ -21,7 +21,11 @@
   },
   "projects": {
     "title": "Projects",
-    "description": "Here you can see my projects."
+    "description": "Here you can see my projects.",
+    "labels": {
+      "contribution": "Contribution",
+      "note": "Note"
+    }
   },
   "skills": {
     "title": "Skills",

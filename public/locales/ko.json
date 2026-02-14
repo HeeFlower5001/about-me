@@ -21,7 +21,11 @@
   },
   "projects": {
     "title": "Projects",
-    "description": "여기에 프로젝트 목록이 표시됩니다."
+    "description": "여기에 프로젝트 목록이 표시됩니다.",
+    "labels": {
+      "contribution": "기여",
+      "note": "특이사항"
+    }
   },
   "skills": {
     "title": "Skills",
