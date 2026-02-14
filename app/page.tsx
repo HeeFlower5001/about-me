@@ -294,6 +294,28 @@ export default function Home() {
     ? ['AI를 활용한 비서 애플리케이션 개발', '과거 프로젝트 리팩토링 및 문서화']
     : ['Building an AI-powered assistant app', 'Refactoring and documenting past projects'];
 
+  const personalTimeline = locale === 'ko'
+    ? [
+        { date: '2025. 09 ~ 현재', title: '키즈카페 근무', description: '' },
+        { date: '2024. 05 ~ 2025. 02', title: '봉사활동', description: '인천시 지역아동센터' },
+        { date: '2022. 06 ~ 2024. 02', title: '사회복무요원 근무', description: '인천시 지역아동센터' },
+        { date: '2021. 03 ~ 2021. 12', title: '봉사활동', description: '군산대학교 봉사동아리 꼼지락\n군산시 지역아동센터' },
+      ]
+    : [
+        { date: 'Sep 2025 ~ Present', title: 'Kids Cafe Staff', description: '' },
+        { date: 'May 2024 ~ Feb 2025', title: 'Volunteer', description: 'Incheon Community Child Care Center' },
+        { date: 'Jun 2022 ~ Feb 2024', title: 'Social Service Personnel', description: 'Incheon Community Child Care Center' },
+        { date: 'Mar 2021 ~ Dec 2021', title: 'Volunteer', description: 'Kunsan University Volunteer Club "Ggomjirak"\nKunsan Community Child Care Center' },
+      ];
+
+  const hobbies = [
+    { label: locale === 'ko' ? '자기개발' : 'Self Development', icon: '📚' },
+    { label: locale === 'ko' ? '게임' : 'Game', icon: '🎮' },
+    { label: locale === 'ko' ? 'OTT/애니메이션' : 'OTT/Animation', icon: '📺' },
+    { label: locale === 'ko' ? '음악' : 'Music', icon: '🎧' },
+    { label: locale === 'ko' ? '기타' : 'Guitar', icon: '🎸' },
+  ];
+
   const personalTags = [
     { key: 'intro' as const, label: t('personal.tags.intro') },
     { key: 'hobbies' as const, label: t('personal.tags.hobbies') },
@@ -713,15 +735,170 @@ export default function Home() {
 
                 <div className="space-y-4">
                   {personalTab === 'intro' && (
-                    <div className="p-6 rounded-2xl border-2 shadow-xl" style={{ borderColor: 'var(--border-default)', backgroundColor: 'var(--card)' }}>
-                      <h3 className="font-semibold mb-2" style={{ color: 'var(--foreground)' }}>🙋 {t('personal.intro.title')}</h3>
-                      <p style={{ color: 'var(--text-secondary)' }}>{t('personal.intro.text')}</p>
+                    <div>
+                      {/* 소개 문구 */}
+                      <div className="space-y-4 mb-10">
+                        {locale === 'ko' ? (
+                          <>
+                            <p className="text-base" style={{ color: 'var(--text-secondary)' }}>
+                              우연히 시작한 아이들과의 시간이
+                              의미 있는 성장과 경험으로 이어졌습니다.
+                            </p>
+                            <p className="text-base" style={{ color: 'var(--text-secondary)' }}>
+                              아이들과의 시간을 더 잘 만들어가기 위해
+                              계속해서 고민하고 있습니다.
+                            </p>
+                            <p className="text-base" style={{ color: 'var(--text-secondary)' }}>
+                              아이들과의 경험을 바탕으로,
+                              관련된 다양한 프로젝트에도 도전해보고 싶습니다.
+                            </p>
+                          </>
+                        ) : (
+                          <>
+                            <p className="text-base" style={{ color: 'var(--text-secondary)' }}>
+                              The time I spent with children, which began by chance,
+                              has led to meaningful growth and experience.
+                            </p>
+                            <p className="text-base" style={{ color: 'var(--text-secondary)' }}>
+                              I continue to think about how to make those moments even better.
+                            </p>
+                            <p className="text-base" style={{ color: 'var(--text-secondary)' }}>
+                              Building on that experience, I want to take on more child-related projects.
+                            </p>
+                          </>
+                        )}
+                      </div>
+
+                      {/* 통계 */}
+                      <div className="flex mb-12">
+                        <div className="flex items-end gap-4">
+                          {/* SVG 별 아이콘 */}
+                          <svg 
+                            width="64" 
+                            height="64" 
+                            viewBox="0 0 24 24"
+                            style={{ color: 'var(--foreground)' }}
+                          >
+                            <path
+                              fill="currentColor"
+                              d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                            />
+                          </svg>
+                          
+                          {/* +4 YEARS와 +180 VOLUNTEER HOURS */}
+                          <div className="flex gap-8">
+                            <div className="flex flex-col items-end">
+                              <div className="text-4xl font-bold leading-none" style={{ color: 'var(--foreground)' }}>
+                                +4
+                              </div>
+                              <div className="text-xs font-semibold tracking-wide mt-1" style={{ color: 'var(--text-secondary)' }}>
+                                Years
+                              </div>
+                            </div>
+                            
+                            <div className="flex flex-col items-end">
+                              <div className="text-4xl font-bold leading-none" style={{ color: 'var(--foreground)' }}>
+                                +180
+                              </div>
+                              <div className="text-xs font-semibold tracking-wide mt-1" style={{ color: 'var(--text-secondary)' }}>
+                                Volunteer Time
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* 타임라인 */}
+                      <div className="relative">
+                        {/* 타임라인 아이템들 */}
+                        <div className="space-y-12">
+                          {personalTimeline.map((item, idx) => (
+                            <div key={idx} className="relative flex gap-6">
+                              {/* 세로 라인 (현재 별에서 다음 별까지, 마지막 제외) */}
+                              {idx < personalTimeline.length - 1 && (
+                                <div 
+                                  className="absolute w-0.5" 
+                                  style={{ 
+                                    backgroundColor: 'var(--border-default)',
+                                    left: '9px',
+                                    top: '20px',
+                                    height: 'calc(100% + 3rem)'
+                                  }}
+                                />
+                              )}
+                              
+                              {/* 별 */}
+                              <div className="flex items-start pt-1">
+                                <svg 
+                                  className="relative z-10 flex-shrink-0" 
+                                  width="20" 
+                                  height="20" 
+                                  viewBox="0 0 24 24"
+                                  style={{ color: 'var(--foreground)' }}
+                                >
+                                  <path
+                                    fill="currentColor"
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                                  />
+                                </svg>
+                              </div>
+                              
+                              {/* 컨텐츠 */}
+                              <div className="flex-1">
+                                <h4 className="text-lg font-bold mb-1" style={{ color: 'var(--foreground)' }}>
+                                  {item.title}
+                                </h4>
+                                <p className="text-sm mb-1" style={{ color: 'var(--text-secondary)' }}>
+                                  {item.date}
+                                </p>
+                                {item.description && (
+                                  <p className="text-sm" style={{ color: 'var(--text-secondary)', whiteSpace: 'pre-line' }}>
+                                    {item.description}
+                                  </p>
+                                )}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   )}
                   {personalTab === 'hobbies' && (
-                    <div className="p-6 rounded-2xl border-2 shadow-xl" style={{ borderColor: 'var(--border-default)', backgroundColor: 'var(--card)' }}>
-                      <h3 className="font-semibold mb-2" style={{ color: 'var(--foreground)' }}>🎧 {t('personal.hobbies.title')}</h3>
-                      <p style={{ color: 'var(--text-secondary)' }}>{t('personal.hobbies.text')}</p>
+                    <div className="space-y-6">
+                      {/* 자기개발 (1열) */}
+                      <div className="flex justify-start">
+                        <div
+                          className="flex flex-col items-center justify-center gap-2 px-8 py-6 rounded-lg border-2 w-[180px] h-[150px]"
+                          style={{
+                            borderColor: 'var(--border-default)',
+                            backgroundColor: 'var(--surface)',
+                          }}
+                        >
+                          <span className="text-4xl">{hobbies[0].icon}</span>
+                          <span className="text-sm font-medium text-center" style={{ color: 'var(--text-secondary)' }}>
+                            {hobbies[0].label}
+                          </span>
+                        </div>
+                      </div>
+                      
+                      {/* 나머지 취미 (4열) */}
+                      <div className="grid grid-cols-4 gap-8">
+                        {hobbies.slice(1).map((hobby) => (
+                          <div
+                            key={hobby.label}
+                            className="flex flex-col items-center justify-center gap-2 px-8 py-6 rounded-lg border-2 w-[180px] h-[150px]"
+                            style={{
+                              borderColor: 'var(--border-default)',
+                              backgroundColor: 'var(--surface)',
+                            }}
+                          >
+                            <span className="text-4xl">{hobby.icon}</span>
+                            <span className="text-sm font-medium text-center" style={{ color: 'var(--text-secondary)' }}>
+                              {hobby.label}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </div>

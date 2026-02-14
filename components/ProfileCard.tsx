@@ -153,7 +153,7 @@ export function ProfileCard() {
         {/* 링크 버튼들 */}
         <div className="flex flex-col gap-3">
           <a
-            href="https://github.com"
+            href="https://github.com/HeeFlower5001"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-3 px-4 py-2.5 rounded-lg border-2 transition-colors hover:text-white"
@@ -174,7 +174,7 @@ export function ProfileCard() {
           </a>
 
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/HeeFlower5001"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-3 px-4 py-2.5 rounded-lg border-2 transition-colors hover:text-white"

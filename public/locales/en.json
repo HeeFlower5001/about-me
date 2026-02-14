@@ -99,24 +99,31 @@
     "description": "A few things that describe me beyond work.",
     "tags": {
       "intro": "Kids",
-      "favorites": "Favorites",
       "hobbies": "Hobbies"
     },
     "intro": {
       "title": "Kids",
-      "text": "I value the process of learning and growing with kids."
-    },
-    "favorites": {
-      "title": "Favorites",
-      "text": "Design systems, clean code, and subtle animations."
+      "timeline": [
+        {
+          "date": "Dec 2025",
+          "title": "First meeting with children",
+          "description": "Started my first project with children."
+        },
+        {
+          "date": "Jun 2025",
+          "title": "Participated in education program",
+          "description": "Had time to show children the joy of coding."
+        },
+        {
+          "date": "Sep 2024",
+          "title": "Started volunteer work",
+          "description": "Began regular mentoring at a local children's center."
+        }
+      ]
     },
     "hobbies": {
       "title": "Hobbies",
       "text": "I enjoy exploring new technologies and building small projects."
-    },
-    "values": {
-      "title": "Values",
-      "text": "Curiosity, clarity, and consistency in collaboration."
     }
   }
 }
