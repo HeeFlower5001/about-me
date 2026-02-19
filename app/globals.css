@@ -82,6 +82,10 @@ body {
   text-size-adjust: 100%;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 /* 기본 폰트 */
 body {
   background: var(--background);
@@ -91,6 +95,7 @@ body {
   min-height: 100vh;
   position: relative;
   overflow-x: auto;
+  overflow-y: scroll;
 }
 
 /* 코드 블록용 */

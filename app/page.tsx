@@ -364,9 +364,9 @@ export default function Home() {
   return (
     <div className="mx-auto max-w-7xl px-6 py-8 mt-20">
       {/* 데스크톱 레이아웃 고정 */}
-      <div className="grid grid-cols-12 gap-8">
+      <div className="grid grid-cols-12 gap-8 items-start">
         {/* 왼쪽: 프로필 카드 (모바일에서는 상단) */}
-        <div className="col-span-4">
+        <div className="col-span-4 self-start h-fit">
           <ProfileCard />
         </div>
 
