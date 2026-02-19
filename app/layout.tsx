@@ -8,6 +8,7 @@ import { I18nProvider } from "./i18n-provider";
 import { TabProvider } from "./tab-context";
 import { LocaleHandler } from "./locale-handler";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -72,6 +73,7 @@ export default function RootLayout({
             </TabProvider>
           </I18nProvider>
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
