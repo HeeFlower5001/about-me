@@ -32,7 +32,8 @@ export function ProfileCard() {
               <img 
                 src="/images/profile.jpg" 
                 alt="Profile" 
-                className="w-full h-full object-cover transition-transform group-hover:scale-105" 
+                className="w-full h-full object-cover transition-transform group-hover:scale-105"
+                style={{ objectPosition: '50% 32%' }}
               />
               {/* 호버 오버레이 */}
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
