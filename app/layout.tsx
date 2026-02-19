@@ -7,7 +7,6 @@ import { Providers } from "./providers";
 import { I18nProvider } from "./i18n-provider";
 import { TabProvider } from "./tab-context";
 import { LocaleHandler } from "./locale-handler";
-import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({

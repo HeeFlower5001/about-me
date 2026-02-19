@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useI18n } from "@/app/i18n-provider";
 import { useTab } from "@/app/tab-context";
 
@@ -8,11 +8,6 @@ export default function Header() {
   const { activeTab, setActiveTab } = useTab();
   const { t } = useI18n();
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const navItems = [
     { 

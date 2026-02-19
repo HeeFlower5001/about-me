@@ -1,19 +1,11 @@
 'use client';
 
 import { useI18n } from '@/app/i18n-provider';
-import { localeNames } from '@/i18n.config';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export function LanguageSwitcher() {
   const { locale, setLocale } = useI18n();
-  const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
 
   const languages = [
     { code: 'ko', label: '한국어' },

@@ -1,7 +1,7 @@
 'use client';
 
 import { useI18n } from '@/app/i18n-provider';
-import { useState, useEffect } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { ProfileCard } from '@/components/ProfileCard';
 import Header from '@/components/Header';
 import { useTab } from '@/app/tab-context';
@@ -10,7 +10,6 @@ import 'devicon/devicon.min.css';
 
 export default function Home() {
   const { t, locale } = useI18n();
-  const [mounted, setMounted] = useState(false);
   const { activeTab } = useTab();
   const [personalTab, setPersonalTab] = useState<'intro' | 'hobbies'>('intro');
   const [typedText, setTypedText] = useState('');
@@ -236,18 +235,22 @@ export default function Home() {
   ];
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
+    const timeout = setTimeout(() => {
+      setTypedText('');
+      setTypingIndex(0);
+      setIsDeleting(false);
+    }, 0);
 
-  useEffect(() => {
-    setTypedText('');
-    setTypingIndex(0);
-    setIsDeleting(false);
+    return () => clearTimeout(timeout);
   }, [locale]);
 
-  const typingPhrases = locale === 'ko'
-    ? ['소프트웨어 개발자 김희승 입니다 !']
-    : ['I am a software developer, Hee Seung Kim !'];
+  const typingPhrases = useMemo(
+    () =>
+      locale === 'ko'
+        ? ['소프트웨어 개발자 김희승 입니다 !']
+        : ['I am a software developer, Hee Seung Kim !'],
+    [locale]
+  );
 
   const nameToHighlight = locale === 'ko' ? '김희승' : 'Hee Seung Kim';
   const renderTypedText = (text: string) => {
@@ -277,8 +280,10 @@ export default function Home() {
         setTypedText(currentText.slice(0, typedText.length - 1));
       }, 40);
     } else if (isDeleting && typedText.length === 0) {
-      setIsDeleting(false);
-      setTypingIndex((prev) => (prev + 1) % typingPhrases.length);
+      timeout = setTimeout(() => {
+        setIsDeleting(false);
+        setTypingIndex((prev) => (prev + 1) % typingPhrases.length);
+      }, 0);
     }
 
     return () => {
@@ -359,8 +364,6 @@ export default function Home() {
       </div>
     );
 
-  if (!mounted) return null;
-
   return (
     <div className="mx-auto max-w-7xl px-6 py-8 mt-20">
       {/* 데스크톱 레이아웃 고정 */}
@@ -438,7 +441,7 @@ export default function Home() {
                       {t('history.education.title')}
                     </h3>
                     <div className="space-y-3">
-                      {educationData.map((item: any, idx: number) => (
+                      {educationData.map((item, idx: number) => (
                         <div key={idx} className="p-3 rounded-lg" style={{ backgroundColor: 'var(--surface)' }}>
                           <div className="flex items-start gap-4">
                             <div className="min-w-0">
@@ -468,7 +471,7 @@ export default function Home() {
                       {t('history.certifications.title')}
                     </h3>
                     <div className="space-y-3">
-                      {certificationsData.map((item: any, idx: number) => (
+                      {certificationsData.map((item, idx: number) => (
                         <div key={idx} className="p-3 rounded-lg" style={{ backgroundColor: 'var(--surface)' }}>
                           <div className="flex items-start gap-4">
                             <p className="text-sm font-semibold" style={{ color: 'var(--foreground)' }}>{item.name}</p>
@@ -487,7 +490,7 @@ export default function Home() {
                       {t('history.awards.title')}
                     </h3>
                     <div className="space-y-3">
-                      {awardsData.map((item: any, idx: number) => (
+                      {awardsData.map((item, idx: number) => (
                         <div key={idx} className="p-3 rounded-lg" style={{ backgroundColor: 'var(--surface)' }}>
                           <div className="flex items-start gap-4">
                             <p className="text-sm font-semibold" style={{ color: 'var(--foreground)' }}>{item.title}</p>
